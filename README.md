@@ -124,6 +124,15 @@ use {
   -- Path where project.nvim will store the project history for use in
   -- telescope
   datapath = vim.fn.stdpath("data"),
+
+  -- Allows the user to declare a custom callback to execute on project
+  -- before a new project is selected and the working directory is changed.
+  -- Setting this to false means that nothing will be executed.
+  before_project_selection_callback = false,
+
+  -- Allows the user to declare a custom callback to execute on project
+  -- selection. Setting this to false means that nothing will be executed.
+  after_project_selection_callback = false,
 }
 ```
 
@@ -174,12 +183,15 @@ List your exclusions before the patterns you do want.
 ### Telescope Integration
 
 To enable telescope integration:
+
 ```lua
 require('telescope').load_extension('projects')
 ```
 
 #### Telescope Projects Picker
+
 To use the projects picker
+
 ```lua
 require'telescope'.extensions.projects.projects{}
 ```
@@ -188,14 +200,14 @@ require'telescope'.extensions.projects.projects{}
 
 **project.nvim** comes with the following mappings:
 
-| Normal mode | Insert mode | Action                     |
-| ----------- | ----------- | -------------------------- |
-| f           | \<c-f\>     | find\_project\_files       |
-| b           | \<c-b\>     | browse\_project\_files     |
-| d           | \<c-d\>     | delete\_project            |
-| s           | \<c-s\>     | search\_in\_project\_files |
-| r           | \<c-r\>     | recent\_project\_files     |
-| w           | \<c-w\>     | change\_working\_directory |
+| Normal mode | Insert mode | Action                   |
+| ----------- | ----------- | ------------------------ |
+| f           | \<c-f\>     | find_project_files       |
+| b           | \<c-b\>     | browse_project_files     |
+| d           | \<c-d\>     | delete_project           |
+| s           | \<c-s\>     | search_in_project_files  |
+| r           | \<c-r\>     | recent_project_files     |
+| w           | \<c-w\>     | change_working_directory |
 
 ## API
 
